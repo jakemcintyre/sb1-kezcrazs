@@ -1,12 +1,10 @@
 import React from 'react';
 
 export default function App() {
-  return (React
+  return (
     <div className="h-screen flex">
-     
       {/* Sidebar */}
       <aside className="w-64 bg-blue-900 text-white flex flex-col p-4">
-       
         {/* Logo with Crown */}
         <div className="flex items-center space-x-2 mb-6">
           <span className="text-yellow-400 text-2xl">👑</span>
