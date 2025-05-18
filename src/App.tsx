@@ -2,46 +2,27 @@ import React from 'react';
 
 export default function App() {
   return (
-    <aside className="w-64 bg-blue-900 text-white flex flex-col p-4">
-  {/* Logo with Crown */}
-  <div className="flex items-center space-x-2 mb-6">
-    <span className="text-yellow-400 text-2xl">👑</span> {/* Placeholder crown icon */}
-    <h1 className="text-2xl font-bold tracking-wide">ChatKing</h1>
-  </div>
+    import React from 'react';
 
-  {/* Navigation */}
-  <nav className="flex flex-col space-y-2">
-    <a href="#" className="hover:bg-blue-800 p-2 rounded">Dashboard</a>
-    <a href="#" className="hover:bg-blue-800 p-2 rounded">Messages</a>
-    <a href="#" className="hover:bg-blue-800 p-2 rounded">Contacts</a>
-    <a href="#" className="hover:bg-blue-800 p-2 rounded">Settings</a>
-  </nav>
-</aside>
+export default function App() {
+  return (
     <div className="h-screen flex">
       {/* Sidebar */}
       <aside className="w-64 bg-blue-900 text-white flex flex-col p-4">
-        <h1 className="text-2xl font-bold mb-6">ChatKing</h1>
+        {/* Logo with Crown */}
+        <div className="flex items-center space-x-2 mb-6">
+          <span className="text-yellow-400 text-2xl">👑</span>
+          <h1 className="text-2xl font-bold tracking-wide">ChatKing</h1>
+        </div>
+
+        {/* Navigation */}
         <nav className="flex flex-col space-y-2">
           <a href="#" className="hover:bg-blue-800 p-2 rounded">Dashboard</a>
           <a href="#" className="hover:bg-blue-800 p-2 rounded">Messages</a>
           <a href="#" className="hover:bg-blue-800 p-2 rounded">Contacts</a>
           <a href="#" className="hover:bg-blue-800 p-2 rounded">Settings</a>
         </nav>
-    <aside className="w-64 bg-blue-900 text-white flex flex-col p-4">
-  {/* Logo with Crown */}
-  <div className="flex items-center space-x-2 mb-6">
-    <span className="text-yellow-400 text-2xl">👑</span> {/* Placeholder crown icon */}
-    <h1 className="text-2xl font-bold tracking-wide">ChatKing</h1>
-  </div>
-
-  {/* Navigation */}
-  <nav className="flex flex-col space-y-2">
-    <a href="#" className="hover:bg-blue-800 p-2 rounded">Dashboard</a>
-    <a href="#" className="hover:bg-blue-800 p-2 rounded">Messages</a>
-    <a href="#" className="hover:bg-blue-800 p-2 rounded">Contacts</a>
-    <a href="#" className="hover:bg-blue-800 p-2 rounded">Settings</a>
-  </nav>
-</aside>
+      </aside>
 
       {/* Main content */}
       <main className="flex-1 bg-gray-50 text-gray-800">
