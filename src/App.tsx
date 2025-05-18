@@ -1,8 +1,8 @@
 import React from 'react';
 
 export default function App() {
-  return (
-    import React from 'react';
+  return (React
+    import  from 'react';
 
 export default function App() {
   return (
