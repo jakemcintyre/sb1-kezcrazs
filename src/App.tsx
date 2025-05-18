@@ -5,8 +5,7 @@ export default function App() {
     import React from 'react';
 
 export default function App() {
-  return (
-    <div className="h-screen flex">
+  return (<div className="h-screen flex">
       {/* Sidebar */}
       <aside className="w-64 bg-blue-900 text-white flex flex-col p-4">
         {/* Logo with Crown */}
