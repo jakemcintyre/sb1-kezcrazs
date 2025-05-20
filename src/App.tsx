@@ -52,76 +52,110 @@ const Dashboard = () => (
 
 const Messages = () => {
   const [selected, setSelected] = useState<number | null>(null);
-
-  const conversations = [
+  const [reply, setReply] = useState('');
+  const [conversations, setConversations] = useState([
     {
       id: 1,
       name: 'Client A',
       messages: [
-        { from: 'them', text: 'Hey, are you available tomorrow?' },
-        { from: 'me', text: 'Yes! What time works for you?' },
+        { from: 'them', text: 'Hey, are you available tomorrow?', time: '9:12 AM' },
+        { from: 'me', text: 'Yes! What time works for you?', time: '9:14 AM' },
       ],
     },
     {
       id: 2,
       name: 'Facebook Lead',
       messages: [
-        { from: 'them', text: 'Thanks for the quote!' },
-        { from: 'me', text: 'Let me know if you have any questions.' },
+        { from: 'them', text: 'Thanks for the quote!', time: '8:03 AM' },
+        { from: 'me', text: 'Let me know if you have any questions.', time: '8:07 AM' },
       ],
     },
-  ];
+  ]);
 
   const selectedConv = conversations.find((c) => c.id === selected);
+
+  const handleSend = () => {
+    if (!reply.trim() || selected === null) return;
+
+    const updated = conversations.map((conv) => {
+      if (conv.id === selected) {
+        return {
+          ...conv,
+          messages: [
+            ...conv.messages,
+            { from: 'me', text: reply.trim(), time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) },
+          ],
+        };
+      }
+      return conv;
+    });
+
+    setConversations(updated);
+    setReply('');
+  };
 
   return (
     <div className="flex flex-col h-full">
       {!selectedConv ? (
         <div>
-          <h2 className="text-xl font-semibold mb-4">Messages</h2>
+          <h2 className="text-2xl font-bold mb-4">Messages</h2>
           <ul className="space-y-3">
             {conversations.map((conv) => (
               <li
                 key={conv.id}
                 onClick={() => setSelected(conv.id)}
-                className="bg-white p-4 rounded shadow hover:bg-gray-100 cursor-pointer"
+                className="bg-white p-4 rounded-lg shadow hover:bg-gray-100 transition cursor-pointer"
               >
-                <h3 className="font-bold">{conv.name}</h3>
-                <p className="text-gray-700">{conv.messages[0].text}</p>
+                <h3 className="text-lg font-semibold">{conv.name}</h3>
+                <p className="text-gray-600 truncate">{conv.messages[0].text}</p>
               </li>
             ))}
           </ul>
         </div>
       ) : (
         <div className="flex flex-col flex-1">
-          <button
-            onClick={() => setSelected(null)}
-            className="text-sm text-blue-500 mb-2 underline"
-          >
-            ← Back to messages
-          </button>
-          <h2 className="text-xl font-semibold mb-2">{selectedConv.name}</h2>
-          <div className="flex-1 overflow-y-auto space-y-2 mb-4">
+          <div className="flex justify-between items-center mb-4">
+            <button
+              onClick={() => setSelected(null)}
+              className="text-sm text-blue-600 underline"
+            >
+              ← Back
+            </button>
+            <h2 className="text-xl font-semibold">{selectedConv.name}</h2>
+            <div />
+          </div>
+
+          <div className="flex-1 overflow-y-auto space-y-3 mb-4 p-2 rounded bg-white shadow-inner">
             {selectedConv.messages.map((msg, i) => (
               <div
                 key={i}
-                className={`p-3 rounded max-w-xs ${
+                className={`max-w-[75%] p-3 rounded-xl shadow-sm ${
                   msg.from === 'me'
-                    ? 'bg-blue-500 text-white self-end ml-auto'
-                    : 'bg-gray-200 text-gray-900 self-start'
+                    ? 'bg-blue-500 text-white ml-auto'
+                    : 'bg-gray-200 text-gray-800'
                 }`}
               >
-                {msg.text}
+                <p className="text-sm">{msg.text}</p>
+                <span className="block text-[10px] text-right text-gray-300 mt-1">
+                  {msg.time}
+                </span>
               </div>
             ))}
           </div>
-          <div className="flex">
+
+          <div className="flex border rounded overflow-hidden">
             <input
               type="text"
-              placeholder="Type a message..."
-              className="flex-1 p-2 border rounded-l"
+              value={reply}
+              onChange={(e) => setReply(e.target.value)}
+              placeholder="Type your message..."
+              className="flex-1 px-4 py-2 outline-none"
+              onKeyDown={(e) => e.key === 'Enter' && handleSend()}
             />
-            <button className="bg-blue-600 text-white px-4 rounded-r">
+            <button
+              onClick={handleSend}
+              className="bg-blue-600 text-white px-4 font-semibold"
+            >
               Send
             </button>
           </div>
