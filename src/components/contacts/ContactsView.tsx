@@ -5,9 +5,15 @@ import Badge from '../common/Badge';
 import PlatformIcon from '../common/PlatformIcon';
 import { formatDate, getLeadStatusColor, getPriorityColor } from '../../utils/formatters';
 import { Calendar, CheckSquare, MessageSquare, Plus, Search, UserPlus } from 'lucide-react';
-
-const ContactsView: React.FC = () => {
-  const { contacts, messages, appointments, reminders, setSelectedContactId } = useAppContext();
+import React from 'react';
+import ContactsView from '../components/contacts/ContactsView';
+export default function ContactsPage() {
+  return (
+    <div className="p-4">
+      <ContactsView />
+    </div>
+  );
+}
   
   const sortedContacts = [...contacts].sort((a, b) => {
     // Sort by lead status priority
