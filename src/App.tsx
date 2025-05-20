@@ -6,9 +6,9 @@ export default function App() {
       {/* Sidebar */}
       <aside className="w-64 bg-blue-900 text-white flex flex-col p-4">
        <img 
-        src="/chatking-logo.png"
-        alt="ChatKing Logo"
-        className="w-40 h-auto mb-6
+         src="/chatking-logo.png"
+         alt="ChatKing Logo"
+         className="w-10 h-auto mr-2
         />
         <div className="flex items-center space-x-2 mb-6">
           <span className="text-yellow-400 text-2xl">👑</span>
