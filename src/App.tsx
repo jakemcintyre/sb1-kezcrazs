@@ -43,12 +43,67 @@ export default function App() {
 }
 
 // Page Components
-const Dashboard = () => (
-  <div>
-    <h2 className="text-xl font-semibold mb-2">Welcome to ChatKing</h2>
-    <p>This is your dashboard. KingBot will give updates here.</p>
-  </div>
-);
+import { motion } from 'framer-motion';
+
+const Dashboard = () => {
+  return (
+    <div className="space-y-6">
+      <motion.h2
+        className="text-3xl font-bold"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        Welcome back, King!
+      </motion.h2>
+
+      {/* Summary Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {[
+          { title: 'New Leads', value: '12', color: 'bg-green-500' },
+          { title: 'Active Chats', value: '5', color: 'bg-blue-500' },
+          { title: 'Tasks Today', value: '7', color: 'bg-yellow-500' },
+        ].map((card, i) => (
+          <motion.div
+            key={i}
+            className={`rounded-xl p-6 text-white shadow-lg ${card.color}`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.2 }}
+          >
+            <h3 className="text-xl font-semibold">{card.title}</h3>
+            <p className="text-3xl mt-2">{card.value}</p>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* KingBot Overview */}
+      <motion.div
+        className="bg-white rounded-xl shadow p-6"
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.8 }}
+      >
+        <h3 className="text-xl font-bold mb-2">KingBot’s Daily Summary</h3>
+        <ul className="list-disc pl-6 text-gray-700 space-y-1">
+          <li>2 high-priority leads to follow up</li>
+          <li>3 chats flagged as sales opportunities</li>
+          <li>1 scheduled reminder for 4 PM call</li>
+        </ul>
+      </motion.div>
+
+      {/* Animated Footer */}
+      <motion.p
+        className="text-center text-sm text-gray-400 mt-10"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2 }}
+      >
+        Powered by KingBot AI – always watching, always helping.
+      </motion.p>
+    </div>
+  );
+};
 
 const Messages = () => {
   const [selected, setSelected] = useState<number | null>(null);
