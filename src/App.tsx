@@ -50,23 +50,27 @@ const Dashboard = () => (
   </div>
 );
 
-const Messages = () => (
-  <div>
-    <h2 className="text-xl font-semibold mb-2">Messages</h2>
-    <p>Your messages will appear here.</p>
-  </div>
-);
+const Messages = () => {
+  const conversations = [
+    { id: 1, name: 'Client A', lastMessage: 'Are you available tomorrow?', time: '2h ago' },
+    { id: 2, name: 'Facebook Lead', lastMessage: 'Thanks for the quote!', time: '5h ago' },
+    { id: 3, name: 'Instagram DM', lastMessage: 'Is this unit in stock?', time: '1d ago' },
+  ];
 
-const Contacts = () => (
-  <div>
-    <h2 className="text-xl font-semibold mb-2">Contacts</h2>
-    <p>Your contact list will show up here.</p>
-  </div>
-);
-
-const Settings = () => (
-  <div>
-    <h2 className="text-xl font-semibold mb-2">Settings</h2>
-    <p>Settings and preferences go here.</p>
-  </div>
-);
+  return (
+    <div>
+      <h2 className="text-xl font-semibold mb-4">Messages</h2>
+      <ul className="space-y-3">
+        {conversations.map((conv) => (
+          <li key={conv.id} className="bg-white p-4 rounded shadow hover:bg-gray-100 transition cursor-pointer">
+            <div className="flex justify-between">
+              <h3 className="font-bold">{conv.name}</h3>
+              <span className="text-sm text-gray-400">{conv.time}</span>
+            </div>
+            <p className="text-gray-700">{conv.lastMessage}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
