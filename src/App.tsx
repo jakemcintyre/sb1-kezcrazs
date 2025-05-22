@@ -29,11 +29,11 @@ function App() {
               path="/"
               element={
                 <h1 className="text-3xl font-bold">Welcome to ChatKing Dashboard</h1>
-              }
+             }
               <main className="flex-1 p-6">
              <Routes>
-             <Route path="/contacts" element={<ContactsPage />} />
-            <Route path="/" element={<h1>Welcome to ChatKing Dashboard</h1>} />
+             <Route path="/contacts" element={<ContactsPage />} 
+            <Route path="/" element={<h1>Welcome to ChatKing Dashboard</h1>} 
           </Routes>
          </main>
        </div>
