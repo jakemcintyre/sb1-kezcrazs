@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ContactsPage from './pages/Contacts';
+import ContactsView from './pages/Contacts';
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
         {/* Main content */}
         <main className="flex-1 p-6">
           <Routes>
-            <Route path="/contacts" element={<ContactsPage />} />
+            <Route path="/contacts" element={<ContactsView />} />
             <Route
               path="/"
               element={
