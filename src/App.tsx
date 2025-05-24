@@ -34,8 +34,6 @@ function App() {
                 </h1>
               }
             />
-            <Route path="/contacts" element={<ContactsPage />} />
->>>>>>> cf296b5 (Fix JSX route and sync with remote)
           </Routes>
         </main>
       </div>
