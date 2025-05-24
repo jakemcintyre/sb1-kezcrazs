@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ContactsView from './pages/Contacts';
+import ContactsPage from './pages/Contacts';
 
 function App() {
   return (
@@ -25,16 +25,11 @@ function App() {
         {/* Main content */}
         <main className="flex-1 p-6">
           <Routes>
-            <Route path="/contacts" element={<ContactsView />} />
-            <Route
-              path="/"
-              element={
-                <h1 className="text-3xl font-bold">
-                  Welcome to ChatKing Dashboard
-                </h1>
-              }
-            />
-          </Routes>
+           <Route path="/" element={
+            <h1 className="text-3xl font-bold">Welcome to ChatKing Dashboard</h1>
+             } />
+            <Route path="/contacts" element={<ContactsPage />} />
+         </Routes>
         </main>
       </div>
     </Router>
