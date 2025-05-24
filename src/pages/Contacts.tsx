@@ -3,9 +3,8 @@ import { useAppContext } from '../../context/AppContext';
 import Avatar from '../common/Avatar';
 import Badge from '../common/Badge';
 import PlatformIcon from '../common/PlatformIcon';
-import { formatDate, getLeadStatusColor, getPriorityColor } from '../../utils/formatters';
-import { Calendar, CheckSquare, MessageSquare, Plus, Search, UserPlus } from 'lucide-react';
-import React from 'react';
+import { formatDate, getLeadStatusColor, getPriority } from '../../utils/helpers';
+import { Calendar, CheckSquare, MessageSquare, Plus } from 'lucide-react';
 
 const mockContacts = [
   {
@@ -26,15 +25,12 @@ const mockContacts = [
   },
 ];
 
-const ContactsView: React.FC = () => {
+const ContactsPage: React.FC = () => {
   return (
-    <div className="p-4 space-y-4">
+    <div className="p-4 space-y-4 text-white">
       <h1 className="text-2xl font-bold text-blue-900">Contacts</h1>
-      {mockContacts.map(contact => (
-        <div
-          key={contact.id}
-          className="bg-white p-4 rounded-lg shadow hover:shadow-lg transition-all"
-        >
+      {mockContacts.map((contact) => (
+        <div key={contact.id} className="bg-white p-4 rounded-lg shadow">
           <p className="text-lg font-semibold">{contact.name}</p>
           <p className="text-sm text-gray-500">{contact.platform}</p>
           <p className="text-sm">{contact.lastMessage}</p>
@@ -45,4 +41,4 @@ const ContactsView: React.FC = () => {
   );
 };
 
-export default ContactsView;
+export default ContactsPage;

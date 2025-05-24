@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ContactsView from './components/contacts/ContactsView';
+import ContactsPage from './pages/Contacts';
 
 function App() {
   return (
@@ -25,8 +25,20 @@ function App() {
         {/* Main content */}
         <main className="flex-1 p-6">
           <Routes>
+<<<<<<< HEAD
             <Route path="/" element={<h1 className="text-3xl font-bold">Welcome to ChatKing Dashboard</h1>} />
             <Route path="/contacts" element={<ContactsView />} />
+=======
+            <Route
+              path="/"
+              element={
+                <h1 className="text-3xl font-bold">
+                  Welcome to ChatKing Dashboard
+                </h1>
+              }
+            />
+            <Route path="/contacts" element={<ContactsPage />} />
+>>>>>>> cf296b5 (Fix JSX route and sync with remote)
           </Routes>
         </main>
       </div>
