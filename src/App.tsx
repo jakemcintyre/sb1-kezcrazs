@@ -7,9 +7,7 @@ function App() {
       <div className="h-screen flex">
         {/* Sidebar */}
         <aside className="w-64 bg-blue-900 text-white p-4">
-          <img
-            src="/chatking-logo.png"
-            alt="ChatKing Logo"
+          <img src="/chatking-logo.png" alt="ChatKing Logo" />
             className="w-10 h-auto mb-4"
           />
           <div className="flex items-center space-x-2">
